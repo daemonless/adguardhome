@@ -88,10 +88,16 @@ This image uses `s6-log` for internal log rotation.
 
 ## Ports
 
-| Port | Description |
-|------|-------------|
-| 53 | DNS (TCP/UDP) |
-| 3000 | Setup wizard / Web UI |
+| Port | Protocol | Description |
+|------|----------|-------------|
+| 53 | TCP/UDP | DNS queries |
+| 67-68 | UDP | DHCP server |
+| 80 | TCP | Web UI (HTTP) |
+| 443 | TCP/UDP | Web UI (HTTPS) / DNS-over-HTTPS |
+| 853 | TCP/UDP | DNS-over-TLS / DNS-over-QUIC |
+| 3000 | TCP | Setup wizard (initial config) |
+| 5443 | TCP/UDP | DNSCrypt |
+| 6060 | TCP | Debug/profiling |
 
 ## Multi-Instance Sync
 
