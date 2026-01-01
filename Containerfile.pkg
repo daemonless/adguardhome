@@ -1,0 +1,46 @@
+ARG BASE_VERSION=15
+FROM ghcr.io/daemonless/base:${BASE_VERSION}
+
+ARG FREEBSD_ARCH=amd64
+ARG PKG_NAME=adguardhome
+ARG HEALTHCHECK_ENDPOINT="http://localhost:3000"
+
+ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
+
+LABEL org.opencontainers.image.title="AdGuard Home" \
+    org.opencontainers.image.description="Network-wide ads & trackers blocking DNS server on FreeBSD" \
+    org.opencontainers.image.source="https://github.com/daemonless/adguardhome" \
+    org.opencontainers.image.url="https://adguard.com/adguard-home.html" \
+    org.opencontainers.image.documentation="https://github.com/AdguardTeam/AdGuardHome/wiki" \
+    org.opencontainers.image.licenses="GPL-3.0-only" \
+    org.opencontainers.image.vendor="daemonless" \
+    org.opencontainers.image.authors="daemonless" \
+    io.daemonless.port="53,3000" \
+    io.daemonless.arch="${FREEBSD_ARCH}" \
+    io.daemonless.category="Network" \
+    io.daemonless.pkg-name="${PKG_NAME}" \
+    io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}"
+
+# Install AdGuard Home from FreeBSD packages
+RUN pkg update && \
+    pkg install -y ${PKG_NAME} && \
+    pkg clean -ay && \
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
+
+# Create config directory and set version
+RUN VERSION=$(pkg info ${PKG_NAME} | sed -n 's/.*Version.*: *//p') && \
+    mkdir -p /config/conf /config/work /app && \
+    echo "${VERSION}" > /app/version && \
+    chown -R bsd:bsd /config
+
+# Copy service definition and init scripts
+COPY root/ /
+
+# Use pkg-specific run script
+COPY root/etc/services.d/adguardhome/run.pkg /etc/services.d/adguardhome/run
+
+# Make scripts executable
+RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || true
+
+EXPOSE 53/tcp 53/udp 3000/tcp
+VOLUME /config

@@ -1,0 +1,22 @@
+#!/bin/sh
+# AdGuard Home s6 service (pkg version)
+#
+# Environment variables:
+#   AGH_USER - User to run as (default: bsd, set to "root" for port 53 binding)
+
+AGH_USER="${AGH_USER:-bsd}"
+
+# Signal readiness when the web UI is responsive
+s6-ready-when fetch -qo /dev/null http://localhost:3000/
+
+if [ "$AGH_USER" = "root" ]; then
+    exec /usr/local/bin/AdGuardHome \
+        --config /config/conf/AdGuardHome.yaml \
+        --work-dir /config/work \
+        --no-check-update
+else
+    exec s6-setuidgid "$AGH_USER" /usr/local/bin/AdGuardHome \
+        --config /config/conf/AdGuardHome.yaml \
+        --work-dir /config/work \
+        --no-check-update
+fi

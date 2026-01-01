@@ -1,0 +1,8 @@
+#!/bin/sh
+# Initialize AdGuard Home configuration directories
+# Paths match official Docker image: /opt/adguardhome/conf and /opt/adguardhome/work
+
+mkdir -p /opt/adguardhome/conf /opt/adguardhome/work
+chown -R bsd:bsd /opt/adguardhome
+
+echo "AdGuard Home directories initialized"

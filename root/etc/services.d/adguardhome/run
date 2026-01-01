@@ -1,0 +1,8 @@
+#!/bin/sh
+# AdGuard Home s6 service
+# Paths match official Docker image: /opt/adguardhome/conf and /opt/adguardhome/work
+
+exec /opt/adguardhome/AdGuardHome \
+    --config /opt/adguardhome/conf/AdGuardHome.yaml \
+    --work-dir /opt/adguardhome/work \
+    --no-check-update
