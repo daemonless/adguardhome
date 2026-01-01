@@ -12,48 +12,57 @@ Network-wide ads & trackers blocking DNS server, running natively on FreeBSD.
 | `S6_LOG_MAX_SIZE` | Max size per log file (bytes) | `1048576` |
 | `S6_LOG_MAX_FILES` | Number of rotated log files to keep | `10` |
 
-## Deployment Options
+## Quick Start
 
-AdGuard Home needs to bind to port 53 for DNS. On FreeBSD, this requires root privileges. This image supports multiple deployment scenarios:
-
-### Option 1: VLAN/Macvlan with Dedicated IP (run as root)
-
-Container gets its own IP address, binds directly to port 53.
+### Podman
 
 ```bash
-podman run -d --name adguardhome \
-  -e AGH_USER=root \
-  --network vlan4 --ip 192.168.4.25 --mac-address 0e:04:00:00:00:19 \
-  -v /containers/adguardhome:/config \
-  ghcr.io/daemonless/adguardhome:latest
+podman run --name adguardhome\
+    --restart unless-stopped\
+    -v /my/own/workdir:/opt/adguardhome/work\
+    -v /my/own/confdir:/opt/adguardhome/conf\
+    -p 53:53/tcp -p 53:53/udp\
+    -p 67:67/udp -p 68:68/udp\
+    -p 80:80/tcp -p 443:443/tcp -p 443:443/udp -p 3000:3000/tcp\
+    -p 853:853/tcp\
+    -p 784:784/udp -p 853:853/udp -p 8853:8853/udp\
+    -p 5443:5443/tcp -p 5443:5443/udp\
+    -p 6060:6060/tcp\
+    -d ghcr.io/daemonless/adguardhome
 ```
 
-### Option 2: Bridge Network with Port Mapping (run as bsd)
+### Compose
 
-Container runs unprivileged, uses port mapping for DNS.
-
-```bash
-podman run -d --name adguardhome \
-  --network podman \
-  -p 53:5353/udp -p 53:5353/tcp -p 3000:3000 \
-  -v /containers/adguardhome:/config \
-  ghcr.io/daemonless/adguardhome:latest
+```yaml
+services:
+  adguardhome:
+    image: ghcr.io/daemonless/adguardhome:latest
+    container_name: adguardhome
+    restart: unless-stopped
+    volumes:
+      - /my/own/workdir:/opt/adguardhome/work
+      - /my/own/confdir:/opt/adguardhome/conf
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "68:68/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "443:443/udp"
+      - "3000:3000/tcp"
+      - "853:853/tcp"
+      - "784:784/udp"
+      - "853:853/udp"
+      - "8853:8853/udp"
+      - "5443:5443/tcp"
+      - "5443:5443/udp"
+      - "6060:6060/tcp"
 ```
 
-Configure AdGuard Home to listen on port 5353 during the setup wizard.
+## FreeBSD Notes
 
-### Option 3: Host Network (run as bsd)
-
-Container shares host's network stack, configure high port in wizard.
-
-```bash
-podman run -d --name adguardhome \
-  --network host \
-  -v /containers/adguardhome:/config \
-  ghcr.io/daemonless/adguardhome:latest
-```
-
-Configure AdGuard Home to listen on port 5353 during the setup wizard.
+On FreeBSD, binding to port 53 requires root privileges. Set `AGH_USER=root` when using privileged ports directly (e.g., with macvlan/host networking).
 
 ## First Run
 
@@ -94,10 +103,13 @@ This image uses `s6-log` for internal log rotation.
 | 67-68 | UDP | DHCP server |
 | 80 | TCP | Web UI (HTTP) |
 | 443 | TCP/UDP | Web UI (HTTPS) / DNS-over-HTTPS |
-| 853 | TCP/UDP | DNS-over-TLS / DNS-over-QUIC |
+| 784 | UDP | DNS-over-QUIC |
+| 853 | TCP | DNS-over-TLS |
+| 853 | UDP | DNS-over-QUIC |
 | 3000 | TCP | Setup wizard (initial config) |
 | 5443 | TCP/UDP | DNSCrypt |
 | 6060 | TCP | Debug/profiling |
+| 8853 | UDP | DNS-over-QUIC (alternate) |
 
 ## Multi-Instance Sync
 

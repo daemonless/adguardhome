@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.title="AdGuard Home" \
     org.opencontainers.image.licenses="GPL-3.0-only" \
     org.opencontainers.image.vendor="daemonless" \
     org.opencontainers.image.authors="daemonless" \
-    io.daemonless.port="53,67,68,80,443,853,3000,5443,6060" \
+    io.daemonless.port="53,67,68,80,443,784,853,3000,5443,6060,8853" \
     io.daemonless.arch="${FREEBSD_ARCH}" \
     io.daemonless.category="Network" \
     io.daemonless.upstream-url="${UPSTREAM_URL}" \
@@ -43,6 +43,6 @@ COPY root/ /
 RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || true
 
 # Match official Docker image ports
-EXPOSE 53/tcp 53/udp 67/udp 68/udp 80/tcp 443/tcp 443/udp 853/tcp 853/udp 3000/tcp 5443/tcp 5443/udp 6060/tcp
+EXPOSE 53/tcp 53/udp 67/udp 68/udp 80/tcp 443/tcp 443/udp 784/udp 853/tcp 853/udp 3000/tcp 5443/tcp 5443/udp 6060/tcp 8853/udp
 
 VOLUME ["/opt/adguardhome/conf", "/opt/adguardhome/work"]
