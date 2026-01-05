@@ -10,12 +10,12 @@ AGH_USER="${AGH_USER:-bsd}"
 s6-ready-when fetch -qo /dev/null http://localhost:3000/
 
 if [ "$AGH_USER" = "root" ]; then
-    exec /usr/local/bin/AdGuardHome \
+    exec /usr/local/bin/adguardhome \
         --config /config/conf/AdGuardHome.yaml \
         --work-dir /config/work \
         --no-check-update
 else
-    exec s6-setuidgid "$AGH_USER" /usr/local/bin/AdGuardHome \
+    exec s6-setuidgid "$AGH_USER" /usr/local/bin/adguardhome \
         --config /config/conf/AdGuardHome.yaml \
         --work-dir /config/work \
         --no-check-update
