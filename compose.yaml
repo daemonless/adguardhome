@@ -1,0 +1,66 @@
+name: adguardhome
+
+x-daemonless:
+  title: "AdGuard Home"
+  icon: ":simple-adguard:"
+  category: "Network"
+  description: "Network-wide ads & trackers blocking DNS server on FreeBSD."
+  upstream_url: "https://github.com/AdguardTeam/AdGuardHome"
+  web_url: "https://adguard.com/adguard-home.html"
+  freshports_url: "https://www.freshports.org/net-mgmt/adguardhome/"
+  user: "bsd"
+  mlock: false
+  upstream_binary: false
+  
+  docs:
+    env:
+      PUID: "User ID for the application process"
+      PGID: "Group ID for the application process"
+      TZ: "Timezone for the container"
+    volumes:
+      /opt/adguardhome/conf: "Configuration files"
+      /opt/adguardhome/work: "Work directory (database, logs, data)"
+    ports:
+      3000: "Web UI (Setup/Admin)"
+      53: "DNS (TCP/UDP)"
+      67/udp: "DHCP Server"
+      68/udp: "DHCP Client"
+      80: "HTTP"
+      443: "HTTPS / DNS-over-HTTPS (TCP/UDP)"
+      784/udp: "DNS-over-QUIC"
+      853: "DNS-over-TLS (TCP/UDP)"
+      5443: "DNS-over-HTTPS (TCP/UDP)"
+      6060: "Admin API"
+      8853/udp: "DNS-over-QUIC"
+
+services:
+  adguardhome:
+    image: ghcr.io/daemonless/adguardhome:latest
+    container_name: adguardhome
+    restart: unless-stopped
+    
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+
+    volumes:
+      - /path/to/containers/adguardhome/conf:/opt/adguardhome/conf
+      - /path/to/containers/adguardhome/work:/opt/adguardhome/work
+
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "68:68/udp"
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      - "784:784/udp"
+      - "853:853"
+      - "853:853/udp"
+      - "3000:3000"
+      - "5443:5443"
+      - "5443:5443/udp"
+      - "6060:6060"
+      - "8853:8853/udp"
