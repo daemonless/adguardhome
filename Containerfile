@@ -4,7 +4,7 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 ARG FREEBSD_ARCH=amd64
 ARG UPSTREAM_URL="https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
-ARG HEALTHCHECK_ENDPOINT="http://localhost:53"
+ARG HEALTHCHECK_ENDPOINT="http://localhost:3000"
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 

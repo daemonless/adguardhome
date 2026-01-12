@@ -3,11 +3,7 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME=adguardhome
-{%- if ports %}
-ARG HEALTHCHECK_ENDPOINT="http://localhost:{{ ports[0].port }}"
-{%- else %}
 ARG HEALTHCHECK_ENDPOINT="http://localhost:3000"
-{%- endif %}
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
@@ -60,7 +56,5 @@ RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || t
 EXPOSE {{ ports | map(attribute='port') | join(' ') }}
 {%- endif %}
 
-# --- Volumes (Injected by Generator) ---
-{%- if volumes %}
-VOLUME {{ volumes | map(attribute='path') | join(' ') }}
-{%- endif %}
+# --- Volumes (pkg uses /config paths) ---
+VOLUME /config/conf /config/work

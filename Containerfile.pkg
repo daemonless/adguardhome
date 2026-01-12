@@ -3,7 +3,7 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME=adguardhome
-ARG HEALTHCHECK_ENDPOINT="http://localhost:53"
+ARG HEALTHCHECK_ENDPOINT="http://localhost:3000"
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
@@ -48,4 +48,4 @@ RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || t
 EXPOSE 53 53 67 68 80 443 443 784 853 853 3000 5443 5443 6060 8853
 
 # --- Volumes (Injected by Generator) ---
-VOLUME /opt/adguardhome/conf /opt/adguardhome/work
+VOLUME /config/conf /config/work
