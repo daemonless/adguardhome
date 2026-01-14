@@ -23,8 +23,8 @@ services:
       - PGID=1000
       - TZ=UTC
     volumes:
-      - /path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf
-      - /path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work
+      - /path/to/containers/adguardhome/conf:/opt/adguardhome/conf
+      - /path/to/containers/adguardhome/work:/opt/adguardhome/work
     ports:
       - 53:53
       - 53:53
@@ -66,8 +66,8 @@ podman run -d --name adguardhome \
   -e PUID=@PUID@ \
   -e PGID=@PGID@ \
   -e TZ=@TZ@ \
-  -v /path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf \ 
-  -v /path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work \ 
+  -v /path/to/containers/adguardhome/conf:/opt/adguardhome/conf \ 
+  -v /path/to/containers/adguardhome/work:/opt/adguardhome/work \ 
   ghcr.io/daemonless/adguardhome:latest
 ```
 Access at: `http://localhost:53`
@@ -82,9 +82,9 @@ Access at: `http://localhost:53`
     state: started
     restart_policy: always
     env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
+      PUID: "@PUID@"
+      PGID: "@PGID@"
+      TZ: "@TZ@"
     ports:
       - "53:53"
       - "53:53"
@@ -102,12 +102,11 @@ Access at: `http://localhost:53`
       - "6060:6060"
       - "8853:8853"
     volumes:
-      - "/path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
+      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
+      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
 ```
 
 ## Configuration
-
 ### Environment Variables
 
 | Variable | Default | Description |
@@ -115,14 +114,12 @@ Access at: `http://localhost:53`
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
-
 ### Volumes
 
 | Path | Description |
 |------|-------------|
 | `/opt/adguardhome/conf` | Configuration files |
 | `/opt/adguardhome/work` | Work directory (database, logs, data) |
-
 ### Ports
 
 | Port | Protocol | Description |
