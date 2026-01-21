@@ -11,6 +11,7 @@ Network-wide ads & trackers blocking DNS server on FreeBSD.
 |---|---|
 | **Port** | 53 |
 | **Registry** | `ghcr.io/daemonless/adguardhome` |
+| **Docs** | [daemonless.io/images/adguardhome](https://daemonless.io/images/adguardhome/) |
 | **Source** | [https://github.com/AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) |
 | **Website** | [https://adguard.com/adguard-home.html](https://adguard.com/adguard-home.html) |
 
