@@ -1,12 +1,12 @@
 {
   "image": "adguardhome",
-  "generated": "2026-02-19T20:52:33Z",
+  "generated": "2026-03-08T09:24:34Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v0.107.72",
       "source": "upstream",
-      "generated": "2026-02-19T20:52:00Z",
+      "generated": "2026-03-08T09:24:18Z",
       "packages": {
         "freebsd": [
           {
@@ -351,9 +351,9 @@
     },
     "pkg-latest": {
       "arch": "amd64",
-      "app_version": "0.107.71_1",
+      "app_version": "0.107.71_2",
       "source": "pkg",
-      "generated": "2026-02-19T20:51:53Z",
+      "generated": "2026-03-08T09:23:59Z",
       "packages": {
         "freebsd": [
           {
@@ -474,7 +474,7 @@
           },
           {
             "name": "adguardhome",
-            "version": "0.107.71_1"
+            "version": "0.107.71_2"
           },
           {
             "name": "ca_root_nss",
@@ -494,7 +494,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.5.1"
+            "version": "2.6.2"
           },
           {
             "name": "s6",
@@ -517,7 +517,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.7"
+            "version": "v1.25.8"
           },
           {
             "name": "github.com/AdguardTeam/dnsproxy",
@@ -706,9 +706,9 @@
     },
     "pkg": {
       "arch": "amd64",
-      "app_version": "0.107.69_3",
+      "app_version": "0.107.69_4",
       "source": "pkg",
-      "generated": "2026-02-19T20:52:19Z",
+      "generated": "2026-03-08T09:23:55Z",
       "packages": {
         "freebsd": [
           {
@@ -829,7 +829,7 @@
           },
           {
             "name": "adguardhome",
-            "version": "0.107.69_3"
+            "version": "0.107.69_4"
           },
           {
             "name": "ca_root_nss",
@@ -872,7 +872,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.7"
+            "version": "v1.25.8"
           },
           {
             "name": "github.com/AdguardTeam/dnsproxy",
