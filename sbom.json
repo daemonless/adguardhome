@@ -1,12 +1,12 @@
 {
   "image": "adguardhome",
-  "generated": "2026-03-08T09:24:34Z",
+  "generated": "2026-03-11T00:11:35Z",
   "tags": {
     "latest": {
       "arch": "amd64",
-      "app_version": "v0.107.72",
+      "app_version": "v0.107.73",
       "source": "upstream",
-      "generated": "2026-03-08T09:24:18Z",
+      "generated": "2026-03-11T00:11:18Z",
       "packages": {
         "freebsd": [
           {
@@ -158,7 +158,7 @@
         "go": [
           {
             "name": "github.com/AdguardTeam/AdGuardHome",
-            "version": "v0.107.72+dirty"
+            "version": "v0.107.73+dirty"
           },
           {
             "name": "stdlib",
@@ -353,7 +353,7 @@
       "arch": "amd64",
       "app_version": "0.107.71_2",
       "source": "pkg",
-      "generated": "2026-03-08T09:23:59Z",
+      "generated": "2026-03-11T00:10:32Z",
       "packages": {
         "freebsd": [
           {
@@ -708,7 +708,7 @@
       "arch": "amd64",
       "app_version": "0.107.69_4",
       "source": "pkg",
-      "generated": "2026-03-08T09:23:55Z",
+      "generated": "2026-03-11T00:11:25Z",
       "packages": {
         "freebsd": [
           {
