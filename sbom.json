@@ -1,12 +1,12 @@
 {
   "image": "adguardhome",
-  "generated": "2026-03-12T07:44:52Z",
+  "generated": "2026-03-19T16:58:59Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v0.107.73",
       "source": "upstream",
-      "generated": "2026-03-12T07:44:34Z",
+      "generated": "2026-03-19T16:58:37Z",
       "packages": {
         "freebsd": [
           {
@@ -353,7 +353,7 @@
       "arch": "amd64",
       "app_version": "0.107.72",
       "source": "pkg",
-      "generated": "2026-03-12T07:43:27Z",
+      "generated": "2026-03-19T16:58:38Z",
       "packages": {
         "freebsd": [
           {
@@ -482,7 +482,7 @@
           },
           {
             "name": "execline",
-            "version": "2.9.7.0"
+            "version": "2.9.8.1"
           },
           {
             "name": "jq",
@@ -494,19 +494,19 @@
           },
           {
             "name": "pkg",
-            "version": "2.6.2"
+            "version": "2.6.2_1"
           },
           {
             "name": "s6",
-            "version": "2.13.2.0"
+            "version": "2.14.0.1"
           },
           {
             "name": "s6-rc",
-            "version": "0.5.6.0"
+            "version": "0.6.0.0"
           },
           {
             "name": "skalibs",
-            "version": "2.14.4.0"
+            "version": "2.14.5.1"
           }
         ],
         "dotnet": [],
@@ -708,7 +708,7 @@
       "arch": "amd64",
       "app_version": "0.107.69_4",
       "source": "pkg",
-      "generated": "2026-03-12T07:43:42Z",
+      "generated": "2026-03-19T16:58:36Z",
       "packages": {
         "freebsd": [
           {
