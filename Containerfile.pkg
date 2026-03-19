@@ -15,7 +15,7 @@ ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 # --- Metadata (Injected by Generator) ---
 LABEL org.opencontainers.image.title="AdGuard Home" \
-      org.opencontainers.image.description="Network-wide ads & trackers blocking DNS server on FreeBSD." \
+      org.opencontainers.image.description="Network-wide ad and tracker blocking DNS server. Covers all devices on your network with no client-side software — includes DoH, DoT, DoQ, and a built-in DHCP server." \
       org.opencontainers.image.source="https://github.com/daemonless/adguardhome" \
       org.opencontainers.image.url="https://adguard.com/adguard-home.html" \
       org.opencontainers.image.documentation="https://github.com/AdguardTeam/AdGuardHome/wiki" \

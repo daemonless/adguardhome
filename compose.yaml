@@ -4,13 +4,14 @@ x-daemonless:
   title: "AdGuard Home"
   icon: ":simple-adguard:"
   category: "Network"
-  description: "Network-wide ads & trackers blocking DNS server on FreeBSD."
+  description: "Network-wide ad and tracker blocking DNS server. Covers all devices on your network with no client-side software — includes DoH, DoT, DoQ, and a built-in DHCP server."
   upstream_url: "https://github.com/AdguardTeam/AdGuardHome"
   web_url: "https://adguard.com/adguard-home.html"
   freshports_url: "https://www.freshports.org/net-mgmt/adguardhome/"
   user: "bsd"
   mlock: false
   upstream_binary: false
+  appjail: true
   
   docs:
     env:

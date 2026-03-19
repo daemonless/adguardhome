@@ -5,15 +5,29 @@ Source: dbuild templates
 
 # AdGuard Home
 
-Network-wide ads & trackers blocking DNS server on FreeBSD.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/adguardhome/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/adguardhome/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/daemonless/adguardhome?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/adguardhome/commits)
+
+Network-wide ad and tracker blocking DNS server. Covers all devices on your network with no client-side software — includes DoH, DoT, DoQ, and a built-in DHCP server.
 
 | | |
 |---|---|
 | **Port** | 53 |
 | **Registry** | `ghcr.io/daemonless/adguardhome` |
-| **Docs** | [daemonless.io/images/adguardhome](https://daemonless.io/images/adguardhome/) |
 | **Source** | [https://github.com/AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) |
 | **Website** | [https://adguard.com/adguard-home.html](https://adguard.com/adguard-home.html) |
+
+## Version Tags
+
+| Tag | Description | Best For |
+| :--- | :--- | :--- |
+| `latest` | **FreeBSD Port**. Built from FreeBSD packages. | Most users. Matches Linux Docker behavior. |
+| `pkg` | **FreeBSD Quarterly**. Uses stable, tested packages. | Production stability. |
+| `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Newest FreeBSD packages. |
+
+## Prerequisites
+
+Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
 
@@ -29,8 +43,8 @@ services:
       - PGID=1000
       - TZ=UTC
     volumes:
-      - /path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf
-      - /path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work
+      - "/path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf"
+      - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
     ports:
       - 53:53
       - 53:53
@@ -48,6 +62,53 @@ services:
       - 6060:6060
       - 8853:8853
     restart: unless-stopped
+```
+
+### AppJail Director
+
+**.env**:
+
+```
+DIRECTOR_PROJECT=adguardhome
+PUID=1000
+PGID=1000
+TZ=UTC
+```
+
+**appjail-director.yml**:
+
+```yaml
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  adguardhome:
+    name: adguardhome
+    options:
+      - container: 'boot args:--pull'
+    oci:
+      user: root
+      environment:
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+    volumes:
+      - adguardhome_opt_adguardhome_conf: /opt/adguardhome/conf
+      - adguardhome_opt_adguardhome_work: /opt/adguardhome/work
+volumes:
+  adguardhome_opt_adguardhome_conf:
+    device: '/path/to/containers/adguardhome/opt/adguardhome/conf'
+  adguardhome_opt_adguardhome_work:
+    device: '/path/to/containers/adguardhome/opt/adguardhome/work'
+```
+
+**Makejail**:
+
+```
+ARG tag=latest
+
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/adguardhome:${tag}
 ```
 
 ### Podman CLI
@@ -69,14 +130,13 @@ podman run -d --name adguardhome \
   -p 5443:5443 \
   -p 6060:6060 \
   -p 8853:8853 \
-  -e PUID=@PUID@ \
-  -e PGID=@PGID@ \
-  -e TZ=@TZ@ \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
   -v /path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf \
   -v /path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work \
   ghcr.io/daemonless/adguardhome:latest
 ```
-Access at: `http://localhost:53`
 
 ### Ansible
 
@@ -88,9 +148,9 @@ Access at: `http://localhost:53`
     state: started
     restart_policy: always
     env:
-      PUID: "@PUID@"
-      PGID: "@PGID@"
-      TZ: "@TZ@"
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "UTC"
     ports:
       - "53:53"
       - "53:53"
@@ -112,7 +172,10 @@ Access at: `http://localhost:53`
       - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
 ```
 
-## Configuration
+Access at: `http://localhost:53`
+
+## Parameters
+
 ### Environment Variables
 
 | Variable | Default | Description |
@@ -120,12 +183,14 @@ Access at: `http://localhost:53`
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
+
 ### Volumes
 
 | Path | Description |
 |------|-------------|
 | `/opt/adguardhome/conf` | Configuration files |
 | `/opt/adguardhome/work` | Work directory (database, logs, data) |
+
 ### Ports
 
 | Port | Protocol | Description |
@@ -146,8 +211,10 @@ Access at: `http://localhost:53`
 | `6060` | TCP | Admin API |
 | `8853` | UDP |  |
 
-## Notes
+**Architectures:** amd64
+**User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
+**Base:** FreeBSD 15.0
 
-- **Architectures:** amd64
-- **User:** `bsd` (UID/GID set via PUID/PGID)
-- **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)
+---
+
+Need help? Join our [Discord](https://discord.gg/Kb9tkhecZT) community.
