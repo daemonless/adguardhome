@@ -50,6 +50,7 @@ services:
       - /path/to/containers/adguardhome/work:/opt/adguardhome/work
 
     ports:
+      - "3000:3000"
       - "53:53"
       - "53:53/udp"
       - "67:67/udp"
@@ -60,7 +61,6 @@ services:
       - "784:784/udp"
       - "853:853"
       - "853:853/udp"
-      - "3000:3000"
       - "5443:5443"
       - "5443:5443/udp"
       - "6060:6060"

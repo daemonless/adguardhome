@@ -1,8 +1,8 @@
 #!/bin/sh
-# Initialize AdGuard Home configuration directories
-# We use /config to map nicely to a single volume
+# Initialize AdGuard Home runtime directories
+# (ensures correct ownership when volumes are mounted)
 
-mkdir -p /config/conf /config/work
-chown -R bsd:bsd /config
+mkdir -p /opt/adguardhome/conf /opt/adguardhome/work
+chown -R bsd:bsd /opt/adguardhome/conf /opt/adguardhome/work
 
 echo "AdGuard Home directories initialized"

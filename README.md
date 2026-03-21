@@ -12,7 +12,7 @@ Network-wide ad and tracker blocking DNS server. Covers all devices on your netw
 
 | | |
 |---|---|
-| **Port** | 53 |
+| **Port** | 3000 |
 | **Registry** | `ghcr.io/daemonless/adguardhome` |
 | **Source** | [https://github.com/AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) |
 | **Website** | [https://adguard.com/adguard-home.html](https://adguard.com/adguard-home.html) |
@@ -46,6 +46,7 @@ services:
       - "/path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf"
       - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
     ports:
+      - 3000:3000
       - 53:53
       - 53:53
       - 67:67
@@ -56,7 +57,6 @@ services:
       - 784:784
       - 853:853
       - 853:853
-      - 3000:3000
       - 5443:5443
       - 5443:5443
       - 6060:6060
@@ -115,6 +115,7 @@ OPTION from=ghcr.io/daemonless/adguardhome:${tag}
 
 ```bash
 podman run -d --name adguardhome \
+  -p 3000:3000 \
   -p 53:53 \
   -p 53:53 \
   -p 67:67 \
@@ -125,7 +126,6 @@ podman run -d --name adguardhome \
   -p 784:784 \
   -p 853:853 \
   -p 853:853 \
-  -p 3000:3000 \
   -p 5443:5443 \
   -p 5443:5443 \
   -p 6060:6060 \
@@ -152,6 +152,7 @@ podman run -d --name adguardhome \
       PGID: "1000"
       TZ: "UTC"
     ports:
+      - "3000:3000"
       - "53:53"
       - "53:53"
       - "67:67"
@@ -162,7 +163,6 @@ podman run -d --name adguardhome \
       - "784:784"
       - "853:853"
       - "853:853"
-      - "3000:3000"
       - "5443:5443"
       - "5443:5443"
       - "6060:6060"
@@ -172,7 +172,7 @@ podman run -d --name adguardhome \
       - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
 ```
 
-Access at: `http://localhost:53`
+Access at: `http://localhost:3000`
 
 ## Parameters
 
@@ -195,6 +195,7 @@ Access at: `http://localhost:53`
 
 | Port | Protocol | Description |
 |------|----------|-------------|
+| `3000` | TCP | Web UI (Setup/Admin) |
 | `53` | TCP | DNS (TCP/UDP) |
 | `53` | UDP | DNS (TCP/UDP) |
 | `67` | UDP |  |
@@ -205,7 +206,6 @@ Access at: `http://localhost:53`
 | `784` | UDP |  |
 | `853` | TCP | DNS-over-TLS (TCP/UDP) |
 | `853` | UDP | DNS-over-TLS (TCP/UDP) |
-| `3000` | TCP | Web UI (Setup/Admin) |
 | `5443` | TCP | DNS-over-HTTPS (TCP/UDP) |
 | `5443` | UDP | DNS-over-HTTPS (TCP/UDP) |
 | `6060` | TCP | Admin API |

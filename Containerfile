@@ -24,7 +24,7 @@ LABEL org.opencontainers.image.title="AdGuard Home" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
       io.daemonless.category="Network" \
-      io.daemonless.port="53" \
+      io.daemonless.port="3000" \
       io.daemonless.volumes="/opt/adguardhome/conf,/opt/adguardhome/work" \
       io.daemonless.arch="${FREEBSD_ARCH}" \
       io.daemonless.upstream-url="${UPSTREAM_URL}" \
@@ -51,7 +51,7 @@ COPY root/ /
 RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || true
 
 # --- Expose (Injected by Generator) ---
-EXPOSE 53 53 67 68 80 443 443 784 853 853 3000 5443 5443 6060 8853
+EXPOSE 3000 53 53 67 68 80 443 443 784 853 853 5443 5443 6060 8853
 
 # --- Volumes (Injected by Generator) ---
 VOLUME /opt/adguardhome/conf /opt/adguardhome/work
