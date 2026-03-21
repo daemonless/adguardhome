@@ -1,12 +1,12 @@
 {
   "image": "adguardhome",
-  "generated": "2026-03-19T16:58:59Z",
+  "generated": "2026-03-21T17:19:03Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v0.107.73",
       "source": "upstream",
-      "generated": "2026-03-19T16:58:37Z",
+      "generated": "2026-03-21T17:18:33Z",
       "packages": {
         "freebsd": [
           {
@@ -124,6 +124,10 @@
           {
             "name": "FreeBSD-zoneinfo",
             "version": "15.0"
+          },
+          {
+            "name": "ca_root_nss",
+            "version": "3.117_2"
           },
           {
             "name": "execline",
@@ -337,7 +341,7 @@
         "rust": []
       },
       "summary": {
-        "freebsd": 36,
+        "freebsd": 37,
         "dotnet": 0,
         "go": 43,
         "java": 0,
@@ -346,14 +350,14 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 79
+        "total": 80
       }
     },
     "pkg-latest": {
       "arch": "amd64",
       "app_version": "0.107.72",
       "source": "pkg",
-      "generated": "2026-03-19T16:58:38Z",
+      "generated": "2026-03-21T17:18:53Z",
       "packages": {
         "freebsd": [
           {
@@ -708,7 +712,7 @@
       "arch": "amd64",
       "app_version": "0.107.69_4",
       "source": "pkg",
-      "generated": "2026-03-19T16:58:36Z",
+      "generated": "2026-03-21T17:18:44Z",
       "packages": {
         "freebsd": [
           {
