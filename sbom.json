@@ -1,12 +1,12 @@
 {
   "image": "adguardhome",
-  "generated": "2026-03-21T17:19:03Z",
+  "generated": "2026-03-28T14:34:14Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v0.107.73",
       "source": "upstream",
-      "generated": "2026-03-21T17:18:33Z",
+      "generated": "2026-03-28T14:34:00Z",
       "packages": {
         "freebsd": [
           {
@@ -357,7 +357,7 @@
       "arch": "amd64",
       "app_version": "0.107.72",
       "source": "pkg",
-      "generated": "2026-03-21T17:18:53Z",
+      "generated": "2026-03-28T14:33:57Z",
       "packages": {
         "freebsd": [
           {
@@ -712,7 +712,7 @@
       "arch": "amd64",
       "app_version": "0.107.69_4",
       "source": "pkg",
-      "generated": "2026-03-21T17:18:44Z",
+      "generated": "2026-03-28T14:33:52Z",
       "packages": {
         "freebsd": [
           {
