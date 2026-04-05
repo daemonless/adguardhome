@@ -1,13 +1,13 @@
 {
+  "generated": "2026-04-05T20:06:32Z",
   "image": "adguardhome",
-  "generated": "2026-03-28T14:34:14Z",
   "tags": {
     "latest": {
-      "arch": "amd64",
       "app_version": "v0.107.73",
-      "source": "upstream",
-      "generated": "2026-03-28T14:34:00Z",
+      "arch": "amd64",
+      "generated": "2026-04-05T20:04:40Z",
       "packages": {
+        "dotnet": [],
         "freebsd": [
           {
             "name": "FreeBSD-audit-lib",
@@ -150,25 +150,16 @@
             "version": "2.13.2.0"
           },
           {
-            "name": "s6-rc",
-            "version": "0.5.6.0"
-          },
-          {
             "name": "skalibs",
             "version": "2.14.4.0"
           }
         ],
-        "dotnet": [],
         "go": [
           {
             "name": "github.com/AdguardTeam/AdGuardHome",
             "version": "v0.107.73+dirty"
           },
           {
-            "name": "stdlib",
-            "version": "v1.25.7"
-          },
-          {
             "name": "github.com/AdguardTeam/dnsproxy",
             "version": "v0.78.2"
           },
@@ -331,6 +322,10 @@
           {
             "name": "howett.net/plist",
             "version": "v1.0.1"
+          },
+          {
+            "name": "stdlib",
+            "version": "v1.25.7"
           }
         ],
         "java": [],
@@ -340,9 +335,10 @@
         "ruby": [],
         "rust": []
       },
+      "source": "upstream",
       "summary": {
-        "freebsd": 37,
         "dotnet": 0,
+        "freebsd": 36,
         "go": 43,
         "java": 0,
         "node": 0,
@@ -350,370 +346,15 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 80
-      }
-    },
-    "pkg-latest": {
-      "arch": "amd64",
-      "app_version": "0.107.72",
-      "source": "pkg",
-      "generated": "2026-03-28T14:33:57Z",
-      "packages": {
-        "freebsd": [
-          {
-            "name": "FreeBSD-audit-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-blocklist",
-            "version": "15.0p3"
-          },
-          {
-            "name": "FreeBSD-bzip2-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-certctl",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-clibs",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-ctf-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-fetch",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-kerberos-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libarchive",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libbsdstat",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libcasper",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libexecinfo",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libldns",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libmagic",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-libucl",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-mtree",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-ncurses-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-openssl",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-openssl-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-pkg-bootstrap",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-rc",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-runtime",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-tcpd",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-ufs-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-utilities",
-            "version": "15.0p1"
-          },
-          {
-            "name": "FreeBSD-xz-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-zfs-lib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-zlib",
-            "version": "15.0"
-          },
-          {
-            "name": "FreeBSD-zoneinfo",
-            "version": "15.0"
-          },
-          {
-            "name": "adguardhome",
-            "version": "0.107.72"
-          },
-          {
-            "name": "ca_root_nss",
-            "version": "3.117_2"
-          },
-          {
-            "name": "execline",
-            "version": "2.9.8.1"
-          },
-          {
-            "name": "jq",
-            "version": "1.8.1"
-          },
-          {
-            "name": "oniguruma",
-            "version": "6.9.10"
-          },
-          {
-            "name": "pkg",
-            "version": "2.6.2_1"
-          },
-          {
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "name": "s6-rc",
-            "version": "0.6.0.0"
-          },
-          {
-            "name": "skalibs",
-            "version": "2.14.5.1"
-          }
-        ],
-        "dotnet": [],
-        "go": [
-          {
-            "name": "github.com/AdguardTeam/AdGuardHome",
-            "version": ""
-          },
-          {
-            "name": "stdlib",
-            "version": "v1.25.8"
-          },
-          {
-            "name": "github.com/AdguardTeam/dnsproxy",
-            "version": "v0.78.2"
-          },
-          {
-            "name": "github.com/AdguardTeam/golibs",
-            "version": "v0.35.7"
-          },
-          {
-            "name": "github.com/AdguardTeam/urlfilter",
-            "version": "v0.23.1"
-          },
-          {
-            "name": "github.com/NYTimes/gziphandler",
-            "version": "v1.1.1"
-          },
-          {
-            "name": "github.com/ameshkov/dnscrypt/v2",
-            "version": "v2.4.0"
-          },
-          {
-            "name": "github.com/ameshkov/dnsstamps",
-            "version": "v1.0.3"
-          },
-          {
-            "name": "github.com/beefsack/go-rate",
-            "version": "v0.0.0-20220214233405-116f4ca011a0"
-          },
-          {
-            "name": "github.com/bluele/gcache",
-            "version": "v0.0.2"
-          },
-          {
-            "name": "github.com/c2h5oh/datasize",
-            "version": "v0.0.0-20231215233829-aa82cc1e6500"
-          },
-          {
-            "name": "github.com/davecgh/go-spew",
-            "version": "v1.1.1"
-          },
-          {
-            "name": "github.com/fsnotify/fsnotify",
-            "version": "v1.8.0"
-          },
-          {
-            "name": "github.com/go-ping/ping",
-            "version": "v1.2.0"
-          },
-          {
-            "name": "github.com/google/go-cmp",
-            "version": "v0.7.0"
-          },
-          {
-            "name": "github.com/google/gopacket",
-            "version": "v1.1.19"
-          },
-          {
-            "name": "github.com/google/renameio/v2",
-            "version": "v2.0.2"
-          },
-          {
-            "name": "github.com/google/uuid",
-            "version": "v1.6.0"
-          },
-          {
-            "name": "github.com/insomniacslk/dhcp",
-            "version": "v0.0.0-20251020182700-175e84fbb167"
-          },
-          {
-            "name": "github.com/kardianos/service",
-            "version": "v1.2.4"
-          },
-          {
-            "name": "github.com/mdlayher/ethernet",
-            "version": "v0.0.0-20220221185849-529eae5b6118"
-          },
-          {
-            "name": "github.com/mdlayher/raw",
-            "version": "v0.1.0"
-          },
-          {
-            "name": "github.com/miekg/dns",
-            "version": "v1.1.72"
-          },
-          {
-            "name": "github.com/patrickmn/go-cache",
-            "version": "v2.1.0+incompatible"
-          },
-          {
-            "name": "github.com/pierrec/lz4/v4",
-            "version": "v4.1.25"
-          },
-          {
-            "name": "github.com/pmezard/go-difflib",
-            "version": "v1.0.0"
-          },
-          {
-            "name": "github.com/quic-go/qpack",
-            "version": "v0.6.0"
-          },
-          {
-            "name": "github.com/quic-go/quic-go",
-            "version": "v0.59.0"
-          },
-          {
-            "name": "github.com/robfig/cron/v3",
-            "version": "v3.0.1"
-          },
-          {
-            "name": "github.com/stretchr/testify",
-            "version": "v1.11.1"
-          },
-          {
-            "name": "github.com/u-root/uio",
-            "version": "v0.0.0-20240224005618-d2acac8f3701"
-          },
-          {
-            "name": "go.etcd.io/bbolt",
-            "version": "v1.4.3"
-          },
-          {
-            "name": "go.yaml.in/yaml/v4",
-            "version": "v4.0.0-rc.3"
-          },
-          {
-            "name": "golang.org/x/crypto",
-            "version": "v0.48.0"
-          },
-          {
-            "name": "golang.org/x/exp",
-            "version": "v0.0.0-20260209203927-2842357ff358"
-          },
-          {
-            "name": "golang.org/x/net",
-            "version": "v0.50.0"
-          },
-          {
-            "name": "golang.org/x/sync",
-            "version": "v0.19.0"
-          },
-          {
-            "name": "golang.org/x/sys",
-            "version": "v0.41.0"
-          },
-          {
-            "name": "golang.org/x/text",
-            "version": "v0.34.0"
-          },
-          {
-            "name": "gonum.org/v1/gonum",
-            "version": "v0.17.0"
-          },
-          {
-            "name": "gopkg.in/natefinch/lumberjack.v2",
-            "version": "v2.2.1"
-          },
-          {
-            "name": "gopkg.in/yaml.v3",
-            "version": "v3.0.1"
-          },
-          {
-            "name": "howett.net/plist",
-            "version": "v1.0.1"
-          }
-        ],
-        "java": [],
-        "node": [],
-        "php": [],
-        "python": [],
-        "ruby": [],
-        "rust": []
-      },
-      "summary": {
-        "freebsd": 38,
-        "dotnet": 0,
-        "go": 43,
-        "java": 0,
-        "node": 0,
-        "php": 0,
-        "python": 0,
-        "ruby": 0,
-        "rust": 0,
-        "total": 81
+        "total": 79
       }
     },
     "pkg": {
-      "arch": "amd64",
       "app_version": "0.107.69_4",
-      "source": "pkg",
-      "generated": "2026-03-28T14:33:52Z",
+      "arch": "amd64",
+      "generated": "2026-04-05T20:04:11Z",
       "packages": {
+        "dotnet": [],
         "freebsd": [
           {
             "name": "FreeBSD-audit-lib",
@@ -860,23 +501,14 @@
             "version": "2.13.2.0"
           },
           {
-            "name": "s6-rc",
-            "version": "0.5.6.0"
-          },
-          {
             "name": "skalibs",
             "version": "2.14.4.0"
           }
         ],
-        "dotnet": [],
         "go": [
           {
             "name": "github.com/AdguardTeam/AdGuardHome",
             "version": ""
-          },
-          {
-            "name": "stdlib",
-            "version": "v1.25.8"
           },
           {
             "name": "github.com/AdguardTeam/dnsproxy",
@@ -1041,6 +673,10 @@
           {
             "name": "howett.net/plist",
             "version": "v1.0.1"
+          },
+          {
+            "name": "stdlib",
+            "version": "v1.25.8"
           }
         ],
         "java": [],
@@ -1050,9 +686,10 @@
         "ruby": [],
         "rust": []
       },
+      "source": "pkg",
       "summary": {
-        "freebsd": 38,
         "dotnet": 0,
+        "freebsd": 37,
         "go": 43,
         "java": 0,
         "node": 0,
@@ -1060,7 +697,358 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 81
+        "total": 80
+      }
+    },
+    "pkg-latest": {
+      "app_version": "0.107.72",
+      "arch": "amd64",
+      "generated": "2026-04-05T20:05:17Z",
+      "packages": {
+        "dotnet": [],
+        "freebsd": [
+          {
+            "name": "FreeBSD-audit-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-blocklist",
+            "version": "15.0p3"
+          },
+          {
+            "name": "FreeBSD-bzip2-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-certctl",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-clibs",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-ctf-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-fetch",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-kerberos-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libarchive",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libbsdstat",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libcasper",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libexecinfo",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libldns",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libmagic",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-libucl",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-mtree",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-ncurses-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-openssl",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-openssl-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-pkg-bootstrap",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-rc",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-runtime",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-tcpd",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-ufs-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-utilities",
+            "version": "15.0p1"
+          },
+          {
+            "name": "FreeBSD-xz-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-zfs-lib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-zlib",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-zoneinfo",
+            "version": "15.0"
+          },
+          {
+            "name": "adguardhome",
+            "version": "0.107.72"
+          },
+          {
+            "name": "ca_root_nss",
+            "version": "3.117_2"
+          },
+          {
+            "name": "execline",
+            "version": "2.9.8.1"
+          },
+          {
+            "name": "jq",
+            "version": "1.8.1"
+          },
+          {
+            "name": "oniguruma",
+            "version": "6.9.10"
+          },
+          {
+            "name": "pkg",
+            "version": "2.6.2_1"
+          },
+          {
+            "name": "s6",
+            "version": "2.14.0.1"
+          },
+          {
+            "name": "skalibs",
+            "version": "2.14.5.1"
+          }
+        ],
+        "go": [
+          {
+            "name": "github.com/AdguardTeam/AdGuardHome",
+            "version": ""
+          },
+          {
+            "name": "github.com/AdguardTeam/dnsproxy",
+            "version": "v0.78.2"
+          },
+          {
+            "name": "github.com/AdguardTeam/golibs",
+            "version": "v0.35.7"
+          },
+          {
+            "name": "github.com/AdguardTeam/urlfilter",
+            "version": "v0.23.1"
+          },
+          {
+            "name": "github.com/NYTimes/gziphandler",
+            "version": "v1.1.1"
+          },
+          {
+            "name": "github.com/ameshkov/dnscrypt/v2",
+            "version": "v2.4.0"
+          },
+          {
+            "name": "github.com/ameshkov/dnsstamps",
+            "version": "v1.0.3"
+          },
+          {
+            "name": "github.com/beefsack/go-rate",
+            "version": "v0.0.0-20220214233405-116f4ca011a0"
+          },
+          {
+            "name": "github.com/bluele/gcache",
+            "version": "v0.0.2"
+          },
+          {
+            "name": "github.com/c2h5oh/datasize",
+            "version": "v0.0.0-20231215233829-aa82cc1e6500"
+          },
+          {
+            "name": "github.com/davecgh/go-spew",
+            "version": "v1.1.1"
+          },
+          {
+            "name": "github.com/fsnotify/fsnotify",
+            "version": "v1.8.0"
+          },
+          {
+            "name": "github.com/go-ping/ping",
+            "version": "v1.2.0"
+          },
+          {
+            "name": "github.com/google/go-cmp",
+            "version": "v0.7.0"
+          },
+          {
+            "name": "github.com/google/gopacket",
+            "version": "v1.1.19"
+          },
+          {
+            "name": "github.com/google/renameio/v2",
+            "version": "v2.0.2"
+          },
+          {
+            "name": "github.com/google/uuid",
+            "version": "v1.6.0"
+          },
+          {
+            "name": "github.com/insomniacslk/dhcp",
+            "version": "v0.0.0-20251020182700-175e84fbb167"
+          },
+          {
+            "name": "github.com/kardianos/service",
+            "version": "v1.2.4"
+          },
+          {
+            "name": "github.com/mdlayher/ethernet",
+            "version": "v0.0.0-20220221185849-529eae5b6118"
+          },
+          {
+            "name": "github.com/mdlayher/raw",
+            "version": "v0.1.0"
+          },
+          {
+            "name": "github.com/miekg/dns",
+            "version": "v1.1.72"
+          },
+          {
+            "name": "github.com/patrickmn/go-cache",
+            "version": "v2.1.0+incompatible"
+          },
+          {
+            "name": "github.com/pierrec/lz4/v4",
+            "version": "v4.1.25"
+          },
+          {
+            "name": "github.com/pmezard/go-difflib",
+            "version": "v1.0.0"
+          },
+          {
+            "name": "github.com/quic-go/qpack",
+            "version": "v0.6.0"
+          },
+          {
+            "name": "github.com/quic-go/quic-go",
+            "version": "v0.59.0"
+          },
+          {
+            "name": "github.com/robfig/cron/v3",
+            "version": "v3.0.1"
+          },
+          {
+            "name": "github.com/stretchr/testify",
+            "version": "v1.11.1"
+          },
+          {
+            "name": "github.com/u-root/uio",
+            "version": "v0.0.0-20240224005618-d2acac8f3701"
+          },
+          {
+            "name": "go.etcd.io/bbolt",
+            "version": "v1.4.3"
+          },
+          {
+            "name": "go.yaml.in/yaml/v4",
+            "version": "v4.0.0-rc.3"
+          },
+          {
+            "name": "golang.org/x/crypto",
+            "version": "v0.48.0"
+          },
+          {
+            "name": "golang.org/x/exp",
+            "version": "v0.0.0-20260209203927-2842357ff358"
+          },
+          {
+            "name": "golang.org/x/net",
+            "version": "v0.50.0"
+          },
+          {
+            "name": "golang.org/x/sync",
+            "version": "v0.19.0"
+          },
+          {
+            "name": "golang.org/x/sys",
+            "version": "v0.41.0"
+          },
+          {
+            "name": "golang.org/x/text",
+            "version": "v0.34.0"
+          },
+          {
+            "name": "gonum.org/v1/gonum",
+            "version": "v0.17.0"
+          },
+          {
+            "name": "gopkg.in/natefinch/lumberjack.v2",
+            "version": "v2.2.1"
+          },
+          {
+            "name": "gopkg.in/yaml.v3",
+            "version": "v3.0.1"
+          },
+          {
+            "name": "howett.net/plist",
+            "version": "v1.0.1"
+          },
+          {
+            "name": "stdlib",
+            "version": "v1.25.8"
+          }
+        ],
+        "java": [],
+        "node": [],
+        "php": [],
+        "python": [],
+        "ruby": [],
+        "rust": []
+      },
+      "source": "pkg",
+      "summary": {
+        "dotnet": 0,
+        "freebsd": 37,
+        "go": 43,
+        "java": 0,
+        "node": 0,
+        "php": 0,
+        "python": 0,
+        "ruby": 0,
+        "rust": 0,
+        "total": 80
       }
     }
   }
