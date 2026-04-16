@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-13T11:25:57Z",
+  "generated": "2026-04-16T15:27:20Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
-      "app_version": "v0.107.73",
+      "app_version": "v0.107.74",
       "arch": "amd64",
-      "generated": "2026-04-13T11:23:28Z",
+      "generated": "2026-04-16T15:25:55Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -131,7 +131,7 @@
           },
           {
             "name": "execline",
-            "version": "2.9.7.0"
+            "version": "2.9.8.1"
           },
           {
             "name": "jq",
@@ -143,33 +143,33 @@
           },
           {
             "name": "pkg",
-            "version": "2.5.1"
+            "version": "2.6.2_1"
           },
           {
             "name": "s6",
-            "version": "2.13.2.0"
+            "version": "2.14.0.1"
           },
           {
             "name": "skalibs",
-            "version": "2.14.4.0"
+            "version": "2.14.5.1"
           }
         ],
         "go": [
           {
             "name": "github.com/AdguardTeam/AdGuardHome",
-            "version": "v0.107.73+dirty"
+            "version": ""
           },
           {
             "name": "github.com/AdguardTeam/dnsproxy",
-            "version": "v0.78.2"
+            "version": "v0.81.1"
           },
           {
             "name": "github.com/AdguardTeam/golibs",
-            "version": "v0.35.7"
+            "version": "v0.35.11"
           },
           {
             "name": "github.com/AdguardTeam/urlfilter",
-            "version": "v0.23.1"
+            "version": "v0.23.2"
           },
           {
             "name": "github.com/NYTimes/gziphandler",
@@ -201,7 +201,7 @@
           },
           {
             "name": "github.com/fsnotify/fsnotify",
-            "version": "v1.8.0"
+            "version": "v1.9.0"
           },
           {
             "name": "github.com/go-ping/ping",
@@ -225,7 +225,7 @@
           },
           {
             "name": "github.com/insomniacslk/dhcp",
-            "version": "v0.0.0-20251020182700-175e84fbb167"
+            "version": "v0.0.0-20260407060928-11b94ed970f2"
           },
           {
             "name": "github.com/kardianos/service",
@@ -249,7 +249,7 @@
           },
           {
             "name": "github.com/pierrec/lz4/v4",
-            "version": "v4.1.25"
+            "version": "v4.1.26"
           },
           {
             "name": "github.com/pmezard/go-difflib",
@@ -281,31 +281,31 @@
           },
           {
             "name": "go.yaml.in/yaml/v4",
-            "version": "v4.0.0-rc.3"
+            "version": "v4.0.0-rc.4.0.20260405193028-802e24f4fbcc"
           },
           {
             "name": "golang.org/x/crypto",
-            "version": "v0.48.0"
-          },
-          {
-            "name": "golang.org/x/exp",
-            "version": "v0.0.0-20260209203927-2842357ff358"
-          },
-          {
-            "name": "golang.org/x/net",
             "version": "v0.50.0"
           },
           {
+            "name": "golang.org/x/exp",
+            "version": "v0.0.0-20260410095643-746e56fc9e2f"
+          },
+          {
+            "name": "golang.org/x/net",
+            "version": "v0.53.0"
+          },
+          {
             "name": "golang.org/x/sync",
-            "version": "v0.19.0"
+            "version": "v0.20.0"
           },
           {
             "name": "golang.org/x/sys",
-            "version": "v0.41.0"
+            "version": "v0.43.0"
           },
           {
             "name": "golang.org/x/text",
-            "version": "v0.34.0"
+            "version": "v0.36.0"
           },
           {
             "name": "gonum.org/v1/gonum",
@@ -325,7 +325,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.7"
+            "version": "v1.26.2"
           }
         ],
         "java": [],
@@ -352,7 +352,7 @@
     "pkg": {
       "app_version": "0.107.72_1",
       "arch": "amd64",
-      "generated": "2026-04-13T11:24:43Z",
+      "generated": "2026-04-16T15:26:03Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -482,7 +482,7 @@
           },
           {
             "name": "execline",
-            "version": "2.9.7.0"
+            "version": "2.9.8.1"
           },
           {
             "name": "jq",
@@ -498,11 +498,11 @@
           },
           {
             "name": "s6",
-            "version": "2.13.2.0"
+            "version": "2.14.0.1"
           },
           {
             "name": "skalibs",
-            "version": "2.14.4.0"
+            "version": "2.14.5.1"
           }
         ],
         "go": [
@@ -703,7 +703,7 @@
     "pkg-latest": {
       "app_version": "0.107.73",
       "arch": "amd64",
-      "generated": "2026-04-13T11:24:18Z",
+      "generated": "2026-04-16T15:26:09Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -845,7 +845,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.6.2_1"
+            "version": "2.7.0"
           },
           {
             "name": "s6",
