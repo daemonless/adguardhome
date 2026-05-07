@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-02T12:48:11Z",
+  "generated": "2026-05-07T13:08:16Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
       "app_version": "v0.107.74",
       "arch": "amd64",
-      "generated": "2026-05-02T12:46:28Z",
+      "generated": "2026-05-07T13:06:08Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -95,7 +95,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p6"
+            "version": "15.0p8"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -123,7 +123,7 @@
           },
           {
             "name": "FreeBSD-zoneinfo",
-            "version": "15.0"
+            "version": "15.0p7"
           },
           {
             "name": "ca_root_nss",
@@ -352,7 +352,7 @@
     "pkg": {
       "app_version": "0.107.72_1",
       "arch": "amd64",
-      "generated": "2026-05-02T12:46:49Z",
+      "generated": "2026-05-07T13:06:45Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -442,7 +442,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p6"
+            "version": "15.0p8"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -470,7 +470,7 @@
           },
           {
             "name": "FreeBSD-zoneinfo",
-            "version": "15.0"
+            "version": "15.0p7"
           },
           {
             "name": "adguardhome",
@@ -703,7 +703,7 @@
     "pkg-latest": {
       "app_version": "0.107.74",
       "arch": "amd64",
-      "generated": "2026-05-02T12:46:58Z",
+      "generated": "2026-05-07T13:07:01Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -793,7 +793,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p6"
+            "version": "15.0p8"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -821,7 +821,7 @@
           },
           {
             "name": "FreeBSD-zoneinfo",
-            "version": "15.0"
+            "version": "15.0p7"
           },
           {
             "name": "adguardhome",
