@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-21T20:42:08Z",
+  "generated": "2026-05-29T21:25:53Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
       "app_version": "v0.107.76",
       "arch": "amd64",
-      "generated": "2026-05-21T20:40:50Z",
+      "generated": "2026-05-29T21:24:28Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -51,7 +51,7 @@
           },
           {
             "name": "FreeBSD-libcasper",
-            "version": "15.0"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-libexecinfo",
@@ -95,7 +95,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p8"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -107,7 +107,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p1"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -127,7 +127,7 @@
           },
           {
             "name": "ca_root_nss",
-            "version": "3.123.1"
+            "version": "3.124"
           },
           {
             "name": "execline",
@@ -352,7 +352,7 @@
     "pkg": {
       "app_version": "0.107.72_2",
       "arch": "amd64",
-      "generated": "2026-05-21T20:40:31Z",
+      "generated": "2026-05-29T21:24:39Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -398,7 +398,7 @@
           },
           {
             "name": "FreeBSD-libcasper",
-            "version": "15.0"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-libexecinfo",
@@ -442,7 +442,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p8"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -454,7 +454,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p1"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -701,9 +701,9 @@
       }
     },
     "pkg-latest": {
-      "app_version": "0.107.74_1",
+      "app_version": "0.107.76",
       "arch": "amd64",
-      "generated": "2026-05-21T20:40:40Z",
+      "generated": "2026-05-29T21:24:32Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -749,7 +749,7 @@
           },
           {
             "name": "FreeBSD-libcasper",
-            "version": "15.0"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-libexecinfo",
@@ -793,7 +793,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p8"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -805,7 +805,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p1"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -825,7 +825,7 @@
           },
           {
             "name": "adguardhome",
-            "version": "0.107.74_1"
+            "version": "0.107.76"
           },
           {
             "name": "ca_root_nss",
@@ -863,11 +863,11 @@
           },
           {
             "name": "github.com/AdguardTeam/dnsproxy",
-            "version": "v0.81.1"
+            "version": "v0.81.4"
           },
           {
             "name": "github.com/AdguardTeam/golibs",
-            "version": "v0.35.11"
+            "version": "v0.35.13"
           },
           {
             "name": "github.com/AdguardTeam/urlfilter",
