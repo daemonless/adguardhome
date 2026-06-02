@@ -1,6 +1,8 @@
 icon: ':simple-adguard:'
 cit:
   port: 3000
+  # must run as root for tcp/53
+  puid: false
 
 build:
   variants:
