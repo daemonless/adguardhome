@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-13T19:57:30Z",
+  "generated": "2026-07-19T15:52:15Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
       "app_version": "v0.107.78",
       "arch": "amd64",
-      "generated": "2026-07-13T19:56:12Z",
+      "generated": "2026-07-19T15:50:53Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -67,6 +67,10 @@
           },
           {
             "name": "FreeBSD-libucl",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-locales",
             "version": "15.0"
           },
           {
@@ -342,7 +346,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 36,
+        "freebsd": 37,
         "go": 44,
         "java": 0,
         "node": 0,
@@ -350,13 +354,13 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 80
+        "total": 81
       }
     },
     "pkg": {
       "app_version": "0.107.77_2",
       "arch": "amd64",
-      "generated": "2026-07-13T19:55:12Z",
+      "generated": "2026-07-19T15:49:42Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -418,6 +422,10 @@
           },
           {
             "name": "FreeBSD-libucl",
+            "version": "15.0"
+          },
+          {
+            "name": "FreeBSD-locales",
             "version": "15.0"
           },
           {
@@ -693,7 +701,7 @@
       "source": "pkg",
       "summary": {
         "dotnet": 0,
-        "freebsd": 37,
+        "freebsd": 38,
         "go": 43,
         "java": 0,
         "node": 0,
@@ -701,13 +709,13 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 80
+        "total": 81
       }
     },
     "pkg-latest": {
-      "app_version": "0.107.77_2",
+      "app_version": "0.107.78",
       "arch": "amd64",
-      "generated": "2026-07-13T19:55:43Z",
+      "generated": "2026-07-19T15:49:07Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -772,6 +780,10 @@
             "version": "15.0"
           },
           {
+            "name": "FreeBSD-locales",
+            "version": "15.0"
+          },
+          {
             "name": "FreeBSD-mtree",
             "version": "15.0"
           },
@@ -829,7 +841,7 @@
           },
           {
             "name": "adguardhome",
-            "version": "0.107.77_2"
+            "version": "0.107.78"
           },
           {
             "name": "ca_root_nss",
@@ -866,24 +878,24 @@
             "version": ""
           },
           {
+            "name": "github.com/AdguardTeam/dnscrypt",
+            "version": "v0.0.2"
+          },
+          {
             "name": "github.com/AdguardTeam/dnsproxy",
-            "version": "v0.81.4"
+            "version": "v0.83.0"
           },
           {
             "name": "github.com/AdguardTeam/golibs",
-            "version": "v0.35.13"
+            "version": "v0.35.14"
           },
           {
             "name": "github.com/AdguardTeam/urlfilter",
-            "version": "v0.23.2"
+            "version": "v0.23.4"
           },
           {
             "name": "github.com/NYTimes/gziphandler",
             "version": "v1.1.1"
-          },
-          {
-            "name": "github.com/ameshkov/dnscrypt/v2",
-            "version": "v2.4.0"
           },
           {
             "name": "github.com/ameshkov/dnsstamps",
@@ -930,6 +942,10 @@
             "version": "v1.6.0"
           },
           {
+            "name": "github.com/gopacket/gopacket",
+            "version": "v1.6.1"
+          },
+          {
             "name": "github.com/insomniacslk/dhcp",
             "version": "v0.0.0-20260407060928-11b94ed970f2"
           },
@@ -967,7 +983,7 @@
           },
           {
             "name": "github.com/quic-go/quic-go",
-            "version": "v0.59.0"
+            "version": "v0.60.0"
           },
           {
             "name": "github.com/robfig/cron/v3",
@@ -987,31 +1003,31 @@
           },
           {
             "name": "go.yaml.in/yaml/v4",
-            "version": "v4.0.0-rc.4.0.20260405193028-802e24f4fbcc"
+            "version": "v4.0.0-rc.6"
           },
           {
             "name": "golang.org/x/crypto",
-            "version": "v0.51.0"
+            "version": "v0.53.0"
           },
           {
             "name": "golang.org/x/exp",
-            "version": "v0.0.0-20260410095643-746e56fc9e2f"
+            "version": "v0.0.0-20260611194520-c48552f49976"
           },
           {
             "name": "golang.org/x/net",
-            "version": "v0.55.0"
+            "version": "v0.56.0"
           },
           {
             "name": "golang.org/x/sync",
-            "version": "v0.20.0"
+            "version": "v0.21.0"
           },
           {
             "name": "golang.org/x/sys",
-            "version": "v0.45.0"
+            "version": "v0.46.0"
           },
           {
             "name": "golang.org/x/text",
-            "version": "v0.37.0"
+            "version": "v0.38.0"
           },
           {
             "name": "gonum.org/v1/gonum",
@@ -1044,15 +1060,15 @@
       "source": "pkg",
       "summary": {
         "dotnet": 0,
-        "freebsd": 37,
-        "go": 43,
+        "freebsd": 38,
+        "go": 44,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 80
+        "total": 82
       }
     }
   }
