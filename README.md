@@ -10,7 +10,6 @@ Source: dbuild templates
 
 Network-wide ad and tracker blocking DNS server. Covers all devices on your network with no client-side software — includes DoH, DoT, DoQ, and a built-in DHCP server.
 
-
 | | |
 |---|---|
 | **Port** | 3000 |
@@ -19,15 +18,13 @@ Network-wide ad and tracker blocking DNS server. Covers all devices on your netw
 | **Website** | [https://adguard.com/adguard-home.html](https://adguard.com/adguard-home.html) |
 
 ## Version Tags
-
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
-| `latest` | **FreeBSD Port**. Built from FreeBSD packages. | Most users. Matches Linux Docker behavior. |
+| `latest` | **FreeBSD Port**. Built from FreeBSD packages. | Most users — recommended. |
 | `pkg` | **FreeBSD Quarterly**. Uses stable, tested packages. | Production stability. |
-| `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Newest FreeBSD packages. |
+| `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Staying current. |
 
 ## Prerequisites
-
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
@@ -37,39 +34,40 @@ Before deploying, ensure your host environment is ready. See the [Quick Start Gu
 ```yaml
 services:
   adguardhome:
-    image: ghcr.io/daemonless/adguardhome:latest
+    image: "ghcr.io/daemonless/adguardhome:latest"
     container_name: adguardhome
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=UTC
+      - PUID=1000  # User ID for the application process
+      - PGID=1000  # Group ID for the application process
+      - TZ=UTC  # Timezone for the container
     volumes:
-      - "/path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
+      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
+      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
     ports:
-      - 3000:3000
-      - 53:53
-      - 53:53
-      - 67:67
-      - 68:68
-      - 80:80
-      - 443:443
-      - 443:443
-      - 784:784
-      - 853:853
-      - 853:853
-      - 5443:5443
-      - 5443:5443
-      - 6060:6060
-      - 8853:8853
+      - "3000:3000"
+      - "53:53"
+      - "53:53"
+      - "67:67"
+      - "68:68"
+      - "80:80"
+      - "443:443"
+      - "443:443"
+      - "784:784"
+      - "853:853"
+      - "853:853"
+      - "5443:5443"
+      - "5443:5443"
+      - "6060:6060"
+      - "8853:8853"
     restart: unless-stopped
 ```
 
 ### AppJail Director
-
 **.env**:
 
 ```
+# .env
+
 DIRECTOR_PROJECT=adguardhome
 PUID=1000
 PGID=1000
@@ -79,6 +77,8 @@ TZ=UTC
 **appjail-director.yml**:
 
 ```yaml
+# appjail-director.yml
+
 options:
   - virtualnet: ':<random> default'
   - nat:
@@ -87,6 +87,21 @@ services:
     name: adguardhome
     options:
       - container: 'boot args:--pull'
+      - expose: '3000:3000 proto:tcp'
+      - expose: '53:53 proto:tcp'
+      - expose: '53:53 proto:udp'
+      - expose: '67:67 proto:udp'
+      - expose: '68:68 proto:udp'
+      - expose: '80:80 proto:tcp'
+      - expose: '443:443 proto:tcp'
+      - expose: '443:443 proto:udp'
+      - expose: '784:784 proto:udp'
+      - expose: '853:853 proto:tcp'
+      - expose: '853:853 proto:udp'
+      - expose: '5443:5443 proto:tcp'
+      - expose: '5443:5443 proto:udp'
+      - expose: '6060:6060 proto:tcp'
+      - expose: '8853:8853 proto:udp'
     oci:
       user: root
       environment:
@@ -94,23 +109,26 @@ services:
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
     volumes:
-      - adguardhome_opt_adguardhome_conf: /opt/adguardhome/conf
-      - adguardhome_opt_adguardhome_work: /opt/adguardhome/work
+      - adguardhome_conf: /opt/adguardhome/conf
+      - adguardhome_work: /opt/adguardhome/work
 volumes:
-  adguardhome_opt_adguardhome_conf:
-    device: '/path/to/containers/adguardhome/opt/adguardhome/conf'
-  adguardhome_opt_adguardhome_work:
-    device: '/path/to/containers/adguardhome/opt/adguardhome/work'
+  adguardhome_conf:
+    device: '/path/to/containers/adguardhome/conf'
+  adguardhome_work:
+    device: '/path/to/containers/adguardhome/work'
 ```
 
 **Makejail**:
 
 ```
+# Makejail
+
 ARG tag=latest
 
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/adguardhome:${tag}
 ```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
 
@@ -134,10 +152,42 @@ podman run -d --name adguardhome \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=UTC \
-  -v /path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf \
-  -v /path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work \
+  -v /path/to/containers/adguardhome/conf:/opt/adguardhome/conf \
+  -v /path/to/containers/adguardhome/work:/opt/adguardhome/work \
   ghcr.io/daemonless/adguardhome:latest
 ```
+
+### AppJail
+
+```bash
+appjail oci run -Pd \
+  -o overwrite=force \
+  -o container="args:--pull" \
+  -o virtualnet=":<random> default" \
+  -o nat \
+  -o expose="3000:3000 proto:tcp" \
+  -o expose="53:53 proto:tcp" \
+  -o expose="53:53 proto:udp" \
+  -o expose="67:67 proto:udp" \
+  -o expose="68:68 proto:udp" \
+  -o expose="80:80 proto:tcp" \
+  -o expose="443:443 proto:tcp" \
+  -o expose="443:443 proto:udp" \
+  -o expose="784:784 proto:udp" \
+  -o expose="853:853 proto:tcp" \
+  -o expose="853:853 proto:udp" \
+  -o expose="5443:5443 proto:tcp" \
+  -o expose="5443:5443 proto:udp" \
+  -o expose="6060:6060 proto:tcp" \
+  -o expose="8853:8853 proto:udp" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
+  -o fstab="/path/to/containers/adguardhome/conf /opt/adguardhome/conf <pseudofs>" \
+  -o fstab="/path/to/containers/adguardhome/work /opt/adguardhome/work <pseudofs>" \
+  ghcr.io/daemonless/adguardhome:latest adguardhome
+```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Ansible
 
@@ -145,7 +195,7 @@ podman run -d --name adguardhome \
 - name: Deploy adguardhome
   containers.podman.podman_container:
     name: adguardhome
-    image: ghcr.io/daemonless/adguardhome:latest
+    image: "ghcr.io/daemonless/adguardhome:latest"
     state: started
     restart_policy: always
     env:
@@ -169,11 +219,9 @@ podman run -d --name adguardhome \
       - "6060:6060"
       - "8853:8853"
     volumes:
-      - "/path/to/containers/adguardhome/opt/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/opt/adguardhome/work:/opt/adguardhome/work"
+      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
+      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
 ```
-
-Access at: `http://localhost:3000`
 
 ## Parameters
 
@@ -214,7 +262,7 @@ Access at: `http://localhost:3000`
 
 **Architectures:** amd64
 **User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
-**Base:** FreeBSD 15.0
+**Base:** FreeBSD 15
 
 ---
 
