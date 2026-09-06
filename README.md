@@ -59,8 +59,11 @@ services:
       - "5443:5443"
       - "6060:6060"
       - "8853:8853"
-    restart: unless-stopped
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -128,6 +131,9 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/adguardhome:${tag}
 ```
+
+Save the files above, then run `appjail-director up`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
@@ -156,6 +162,8 @@ podman run -d --name adguardhome \
   -v /path/to/containers/adguardhome/work:/opt/adguardhome/work \
   ghcr.io/daemonless/adguardhome:latest
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
@@ -187,7 +195,38 @@ appjail oci run -Pd \
   -o fstab="/path/to/containers/adguardhome/work /opt/adguardhome/work <pseudofs>" \
   ghcr.io/daemonless/adguardhome:latest adguardhome
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+
+```yaml
+services:
+  adguardhome:
+    image: "ghcr.io/daemonless/adguardhome:latest"
+    container_name: adguardhome
+    network_mode: host  # jail shares host networking
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+```
+
+Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=UTC \
+  --data-path /path/to/containers/adguardhome \
+  adguardhome ghcr.io/daemonless/adguardhome:latest inherit
+```
 
 ### Ansible
 
@@ -222,6 +261,8 @@ appjail oci run -Pd \
       - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
       - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
 ```
+
+Save as `adguardhome-deploy.yaml`, then run `ansible-playbook adguardhome-deploy.yaml`.
 
 ## Parameters
 
