@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-19T17:13:12Z",
+  "generated": "2026-09-29T20:25:35Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
       "app_version": "v0.107.79",
       "arch": "amd64",
-      "generated": "2026-09-19T17:12:17Z",
+      "generated": "2026-09-29T20:24:32Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -543,7 +543,7 @@
     "pkg": {
       "app_version": "0.107.77_4",
       "arch": "amd64",
-      "generated": "2026-09-19T17:12:29Z",
+      "generated": "2026-09-29T20:24:59Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -797,7 +797,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.129"
+            "version": "3.130"
           },
           {
             "licenses": [
@@ -1083,7 +1083,7 @@
     "pkg-latest": {
       "app_version": "0.107.79",
       "arch": "amd64",
-      "generated": "2026-09-19T17:12:39Z",
+      "generated": "2026-09-29T20:24:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1337,7 +1337,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.129"
+            "version": "3.130"
           },
           {
             "licenses": [
