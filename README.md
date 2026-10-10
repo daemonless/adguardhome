@@ -42,8 +42,8 @@ services:
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
     volumes:
-      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
+      - "/containers/adguardhome/conf:/opt/adguardhome/conf"
+      - "/containers/adguardhome/work:/opt/adguardhome/work"
     ports:
       - "3000:3000"
       - "53:53"
@@ -117,9 +117,9 @@ services:
       - adguardhome_work: /opt/adguardhome/work
 volumes:
   adguardhome_conf:
-    device: '/path/to/containers/adguardhome/conf'
+    device: '/containers/adguardhome/conf'
   adguardhome_work:
-    device: '/path/to/containers/adguardhome/work'
+    device: '/containers/adguardhome/work'
 ```
 
 **Makejail**:
@@ -135,75 +135,6 @@ OPTION from=ghcr.io/daemonless/adguardhome:${tag}
 ```
 
 Save the files above, then run `appjail-director up`.
-
-
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
-### Podman CLI
-
-```bash
-podman run -d --name adguardhome \
-  -p 3000:3000 \
-  -p 53:53 \
-  -p 53:53 \
-  -p 67:67 \
-  -p 68:68 \
-  -p 80:80 \
-  -p 443:443 \
-  -p 443:443 \
-  -p 784:784 \
-  -p 853:853 \
-  -p 853:853 \
-  -p 5443:5443 \
-  -p 5443:5443 \
-  -p 6060:6060 \
-  -p 8853:8853 \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -v /path/to/containers/adguardhome/conf:/opt/adguardhome/conf \
-  -v /path/to/containers/adguardhome/work:/opt/adguardhome/work \
-  ghcr.io/daemonless/adguardhome:latest
-```
-
-Save as `run.sh`, then run `sh run.sh`.
-
-### AppJail
-
-
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -o expose="3000:3000 proto:tcp" \
-  -o expose="53:53 proto:tcp" \
-  -o expose="53:53 proto:udp" \
-  -o expose="67:67 proto:udp" \
-  -o expose="68:68 proto:udp" \
-  -o expose="80:80 proto:tcp" \
-  -o expose="443:443 proto:tcp" \
-  -o expose="443:443 proto:udp" \
-  -o expose="784:784 proto:udp" \
-  -o expose="853:853 proto:tcp" \
-  -o expose="853:853 proto:udp" \
-  -o expose="5443:5443 proto:tcp" \
-  -o expose="5443:5443 proto:udp" \
-  -o expose="6060:6060 proto:tcp" \
-  -o expose="8853:8853 proto:udp" \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -o fstab="/path/to/containers/adguardhome/conf /opt/adguardhome/conf <pseudofs>" \
-  -o fstab="/path/to/containers/adguardhome/work /opt/adguardhome/work <pseudofs>" \
-  ghcr.io/daemonless/adguardhome:latest adguardhome
-```
-
-Save the files above, then run `sh run.sh`.
 
 
 > [!WARNING]
@@ -228,57 +159,11 @@ services:
       - PGID=1000
       - TZ=UTC
     volumes:
-      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
+      - "/containers/adguardhome/conf:/opt/adguardhome/conf"
+      - "/containers/adguardhome/work:/opt/adguardhome/work"
 ```
 
-Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
-
-```bash
-bastille create -O \
-  --env PUID=1000 \
-  --env PGID=1000 \
-  --env TZ=UTC \
-  --volume /path/to/containers/adguardhome/conf /opt/adguardhome/conf \
-  --volume /path/to/containers/adguardhome/work /opt/adguardhome/work \
-  adguardhome ghcr.io/daemonless/adguardhome:latest inherit
-```
-
-### Ansible
-
-```yaml
-- name: Deploy adguardhome
-  containers.podman.podman_container:
-    name: adguardhome
-    image: "ghcr.io/daemonless/adguardhome:latest"
-    state: started
-    restart_policy: always
-    env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
-    ports:
-      - "3000:3000"
-      - "53:53"
-      - "53:53"
-      - "67:67"
-      - "68:68"
-      - "80:80"
-      - "443:443"
-      - "443:443"
-      - "784:784"
-      - "853:853"
-      - "853:853"
-      - "5443:5443"
-      - "5443:5443"
-      - "6060:6060"
-      - "8853:8853"
-    volumes:
-      - "/path/to/containers/adguardhome/conf:/opt/adguardhome/conf"
-      - "/path/to/containers/adguardhome/work:/opt/adguardhome/work"
-```
-
-Save as `adguardhome-deploy.yaml`, then run `ansible-playbook adguardhome-deploy.yaml`.
+Save as `bastille-compose.yml`, then run `bastille up`.
 
 ## Parameters
 
