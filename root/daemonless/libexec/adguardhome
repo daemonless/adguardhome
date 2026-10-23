@@ -1,5 +1,5 @@
 #!/bin/sh
-# AdGuard Home s6 service
+# Start adguardhome; /init has already dropped to the run user.
 # Paths match official Docker image: /opt/adguardhome/conf and /opt/adguardhome/work
 
 exec /opt/adguardhome/AdGuardHome \

@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG UPSTREAM_URL="https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest"
@@ -46,9 +46,11 @@ RUN mkdir -p /opt/adguardhome/conf /opt/adguardhome/work /app && \
 
 # Copy service definition and init scripts
 COPY root/ /
+RUN rm /daemonless/libexec/adguardhome.pkg && \
+    chmod +x /daemonless/libexec/adguardhome /daemonless/init.d/*
 
-# Make scripts executable
-RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || true
+ENV DAEMONLESS_USER=root
+CMD ["/daemonless/libexec/adguardhome"]
 
 # --- Expose (Injected by Generator) ---
 EXPOSE 3000 53 53 67 68 80 443 443 784 853 853 5443 5443 6060 8853

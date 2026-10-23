@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME=adguardhome
@@ -43,12 +43,13 @@ RUN VERSION=$(pkg info ${PKG_NAME} | sed -n 's/.*Version.*: *//p') && \
 
 # Copy service definition
 COPY root/ /
+RUN chmod +x /daemonless/libexec/adguardhome /daemonless/init.d/* /daemonless/libexec/adguardhome.pkg
 
-# Use pkg-specific run script
-COPY root/etc/services.d/adguardhome/run.pkg /etc/services.d/adguardhome/run
+ENV DAEMONLESS_USER=root
+CMD ["/daemonless/libexec/adguardhome"]
 
-# Make scripts executable
-RUN chmod +x /etc/services.d/adguardhome/run /etc/cont-init.d/* 2>/dev/null || true
+# The pkg layout's launcher
+RUN mv /daemonless/libexec/adguardhome.pkg /daemonless/libexec/adguardhome
 
 # --- Expose (Injected by Generator) ---
 EXPOSE 3000 53 53 67 68 80 443 443 784 853 853 5443 5443 6060 8853

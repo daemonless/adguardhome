@@ -1,0 +1,19 @@
+#!/bin/sh
+# Start adguardhome; /init has already dropped to the run user.
+#
+# Environment variables:
+#   AGH_USER - User to run as (default: bsd, set to "root" for port 53 binding)
+
+# Default to root for DNS port 53 binding (TODO: use 5353 mapping to run as bsd)
+AGH_USER="${AGH_USER:-root}"
+
+if [ "$AGH_USER" != "root" ]; then
+    exec dsu "$AGH_USER" /usr/local/bin/adguardhome \
+        --config /config/conf/AdGuardHome.yaml \
+        --work-dir /config/work \
+        --no-check-update
+fi
+exec /usr/local/bin/adguardhome \
+    --config /config/conf/AdGuardHome.yaml \
+    --work-dir /config/work \
+    --no-check-update
