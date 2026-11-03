@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T22:06:07Z",
+  "generated": "2026-11-03T20:50:53Z",
   "image": "adguardhome",
   "tags": {
     "latest": {
-      "app_version": "v0.107.79",
+      "app_version": "v0.107.80",
       "arch": "amd64",
-      "generated": "2026-10-23T22:05:21Z",
+      "generated": "2026-11-03T20:49:42Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -328,11 +328,6 @@
             "version": "v0.0.0-20231215233829-aa82cc1e6500"
           },
           {
-            "name": "github.com/davecgh/go-spew",
-            "purl": "",
-            "version": "v1.1.2-0.20180830191138-d8f796af33cc"
-          },
-          {
             "name": "github.com/fsnotify/fsnotify",
             "purl": "",
             "version": "v1.10.1"
@@ -403,11 +398,6 @@
             "version": "v4.1.27"
           },
           {
-            "name": "github.com/pmezard/go-difflib",
-            "purl": "",
-            "version": "v1.0.1-0.20181226105442-5d4384ee4fb2"
-          },
-          {
             "name": "github.com/quic-go/qpack",
             "purl": "",
             "version": "v0.6.0"
@@ -425,7 +415,7 @@
           {
             "name": "github.com/stretchr/testify",
             "purl": "",
-            "version": "v1.11.1"
+            "version": "v1.12.1"
           },
           {
             "name": "github.com/u-root/uio",
@@ -438,6 +428,11 @@
             "version": "v1.5.0"
           },
           {
+            "name": "go.yaml.in/yaml/v3",
+            "purl": "",
+            "version": "v3.0.6"
+          },
+          {
             "name": "go.yaml.in/yaml/v4",
             "purl": "",
             "version": "v4.0.0-rc.6"
@@ -445,7 +440,7 @@
           {
             "name": "golang.org/x/crypto",
             "purl": "",
-            "version": "v0.54.0"
+            "version": "v0.58.0"
           },
           {
             "name": "golang.org/x/exp",
@@ -455,22 +450,22 @@
           {
             "name": "golang.org/x/net",
             "purl": "",
-            "version": "v0.57.0"
+            "version": "v0.62.0"
           },
           {
             "name": "golang.org/x/sync",
             "purl": "",
-            "version": "v0.22.0"
+            "version": "v0.24.0"
           },
           {
             "name": "golang.org/x/sys",
             "purl": "",
-            "version": "v0.47.0"
+            "version": "v0.49.0"
           },
           {
             "name": "golang.org/x/text",
             "purl": "",
-            "version": "v0.40.0"
+            "version": "v0.43.0"
           },
           {
             "name": "gonum.org/v1/gonum",
@@ -483,11 +478,6 @@
             "version": "v2.2.1"
           },
           {
-            "name": "gopkg.in/yaml.v3",
-            "purl": "",
-            "version": "v3.0.1"
-          },
-          {
             "name": "howett.net/plist",
             "purl": "",
             "version": "v1.0.1"
@@ -495,7 +485,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.6"
+            "version": "v1.27.3"
           }
         ],
         "java": [],
@@ -509,20 +499,20 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 38,
-        "go": 44,
+        "go": 42,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 82
+        "total": 80
       }
     },
     "pkg": {
       "app_version": "0.107.79_2",
       "arch": "amd64",
-      "generated": "2026-10-23T22:04:13Z",
+      "generated": "2026-11-03T20:50:22Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -706,7 +696,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -776,7 +766,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131.1"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -1046,7 +1036,7 @@
     "pkg-latest": {
       "app_version": "0.107.79_2",
       "arch": "amd64",
-      "generated": "2026-10-23T22:03:49Z",
+      "generated": "2026-11-03T20:49:34Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1230,7 +1220,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -1300,7 +1290,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131.1"
+            "version": "3.132"
           },
           {
             "licenses": [
